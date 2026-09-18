@@ -8,31 +8,39 @@
    playback needs a real file for each track.
    ========================================================= */
 
-/* ---------- PLAYLIST DATA ---------- */
+/* ---------- PLAYLIST DATA ----------
+   NOTE ON AUDIO: Actual copyrighted Bollywood/English tracks can't be
+   embedded here. The "src" values below point to free, openly-licensed
+   demo audio (SoundHelix) so the player is fully functional out of the
+   box for your demo/viva. To use the REAL songs, just replace each src
+   with a local file path (e.g. "songs/bw1.mp3") once you add your own
+   mp3 files to a songs/ folder next to this script — everything else
+   (titles, artists, UI) is already set up for the tracks named below.
+------------------------------------------------------------------- */
 const bollywoodSongs = [
-  { title: "Kesariya",              artist: "Arijit Singh",              duration: "4:28", src: "songs/bw1.mp3",  color: "#ff6a88" },
-  { title: "Tum Hi Ho",             artist: "Arijit Singh",              duration: "4:22", src: "songs/bw2.mp3",  color: "#6a82fb" },
-  { title: "Zinda",                 artist: "Siddharth Mahadevan",       duration: "5:22", src: "songs/bw3.mp3",  color: "#ff9a5a" },
-  { title: "Channa Mereya",         artist: "Arijit Singh",              duration: "4:50", src: "songs/bw4.mp3",  color: "#43cea2" },
-  { title: "Kal Ho Naa Ho",         artist: "Sonu Nigam",                duration: "5:32", src: "songs/bw5.mp3",  color: "#f7797d" },
-  { title: "Raabta",                artist: "Arijit Singh",              duration: "3:52", src: "songs/bw6.mp3",  color: "#a18cd1" },
-  { title: "Tera Yaar Hoon Main",   artist: "Arijit Singh, Amit Mishra", duration: "4:44", src: "songs/bw7.mp3",  color: "#ff758c" },
-  { title: "Apna Bana Le",          artist: "Arijit Singh",              duration: "3:39", src: "songs/bw8.mp3",  color: "#f6d365" },
-  { title: "Agar Tum Saath Ho",     artist: "Alka Yagnik, Arijit Singh", duration: "5:41", src: "songs/bw9.mp3",  color: "#5ee7df" },
-  { title: "Ilahi",                 artist: "Arijit Singh",              duration: "4:18", src: "songs/bw10.mp3", color: "#fbc2eb" }
+  { title: "Kesariya",              artist: "Arijit Singh",              duration: "4:28", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",  color: "#ff6a88" },
+  { title: "Tum Hi Ho",             artist: "Arijit Singh",              duration: "4:22", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",  color: "#6a82fb" },
+  { title: "Zinda",                 artist: "Siddharth Mahadevan",       duration: "5:22", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",  color: "#ff9a5a" },
+  { title: "Channa Mereya",         artist: "Arijit Singh",              duration: "4:50", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",  color: "#43cea2" },
+  { title: "Kal Ho Naa Ho",         artist: "Sonu Nigam",                duration: "5:32", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3",  color: "#f7797d" },
+  { title: "Raabta",                artist: "Arijit Singh",              duration: "3:52", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3",  color: "#a18cd1" },
+  { title: "Tera Yaar Hoon Main",   artist: "Arijit Singh, Amit Mishra", duration: "4:44", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3",  color: "#ff758c" },
+  { title: "Apna Bana Le",          artist: "Arijit Singh",              duration: "3:39", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3",  color: "#f6d365" },
+  { title: "Agar Tum Saath Ho",     artist: "Alka Yagnik, Arijit Singh", duration: "5:41", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3",  color: "#5ee7df" },
+  { title: "Ilahi",                 artist: "Arijit Singh",              duration: "4:18", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3", color: "#fbc2eb" }
 ];
 
 const englishSongs = [
-  { title: "Blinding Lights",       artist: "The Weeknd",     duration: "3:20", src: "songs/en1.mp3",  color: "#ff6a88" },
-  { title: "Shape of You",          artist: "Ed Sheeran",     duration: "3:53", src: "songs/en2.mp3",  color: "#6a82fb" },
-  { title: "Someone Like You",      artist: "Adele",          duration: "4:45", src: "songs/en3.mp3",  color: "#ff9a5a" },
-  { title: "Perfect",               artist: "Ed Sheeran",     duration: "4:23", src: "songs/en4.mp3",  color: "#43cea2" },
-  { title: "Levitating",            artist: "Dua Lipa",       duration: "3:23", src: "songs/en5.mp3",  color: "#f7797d" },
-  { title: "Stay",                  artist: "The Kid LAROI, Justin Bieber", duration: "2:21", src: "songs/en6.mp3", color: "#a18cd1" },
-  { title: "Cruel Summer",          artist: "Taylor Swift",   duration: "2:58", src: "songs/en7.mp3",  color: "#ff758c" },
-  { title: "Counting Stars",        artist: "OneRepublic",    duration: "4:17", src: "songs/en8.mp3",  color: "#f6d365" },
-  { title: "Uptown Funk",           artist: "Mark Ronson ft. Bruno Mars", duration: "4:30", src: "songs/en9.mp3", color: "#5ee7df" },
-  { title: "Someone You Loved",     artist: "Lewis Capaldi",  duration: "3:02", src: "songs/en10.mp3", color: "#fbc2eb" }
+  { title: "Blinding Lights",       artist: "The Weeknd",     duration: "3:20", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3", color: "#ff6a88" },
+  { title: "Shape of You",          artist: "Ed Sheeran",     duration: "3:53", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3", color: "#6a82fb" },
+  { title: "Someone Like You",      artist: "Adele",          duration: "4:45", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-13.mp3", color: "#ff9a5a" },
+  { title: "Perfect",               artist: "Ed Sheeran",     duration: "4:23", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-14.mp3", color: "#43cea2" },
+  { title: "Levitating",            artist: "Dua Lipa",       duration: "3:23", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-15.mp3", color: "#f7797d" },
+  { title: "Stay",                  artist: "The Kid LAROI, Justin Bieber", duration: "2:21", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-16.mp3", color: "#a18cd1" },
+  { title: "Cruel Summer",          artist: "Taylor Swift",   duration: "2:58", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",  color: "#ff758c" },
+  { title: "Counting Stars",        artist: "OneRepublic",    duration: "4:17", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",  color: "#f6d365" },
+  { title: "Uptown Funk",           artist: "Mark Ronson ft. Bruno Mars", duration: "4:30", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3", color: "#5ee7df" },
+  { title: "Someone You Loved",     artist: "Lewis Capaldi",  duration: "3:02", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",  color: "#fbc2eb" }
 ];
 
 const libraries = { bollywood: bollywoodSongs, english: englishSongs };
@@ -259,3 +267,4 @@ repeatBtn.addEventListener("click", toggleRepeat);
 /* ---------- INIT ---------- */
 audio.volume = volumeBar.value;
 loadSong();
+                                      
