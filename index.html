@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task 4 - Music Player | Bollywood & English Playlist</title>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ===== PLAYER ===== -->
+  <div class="player">
+
+    <div class="player-header">
+      <h1>🎵 Music Player</h1>
+      <div class="tab-switch">
+        <button class="tab-btn active" data-list="bollywood">Bollywood</button>
+        <button class="tab-btn" data-list="english">English</button>
+      </div>
+    </div>
+
+    <div class="cover-wrap">
+      <img id="cover" class="cover-art" src="" alt="Album Art">
+      <div class="vinyl-glow"></div>
+    </div>
+
+    <div class="track-info">
+      <h2 id="song-title">Song Title</h2>
+      <p id="song-artist">Artist Name</p>
+    </div>
+
+    <div class="progress-section">
+      <span id="current-time">0:00</span>
+      <input type="range" id="progress-bar" value="0" min="0" max="100" step="0.1">
+      <span id="duration">0:00</span>
+    </div>
+
+    <div class="controls">
+      <button id="shuffle-btn" class="icon-btn small" title="Shuffle">🔀</button>
+      <button id="prev-btn" class="icon-btn" title="Previous">⏮</button>
+      <button id="play-btn" class="icon-btn play" title="Play/Pause">▶</button>
+      <button id="next-btn" class="icon-btn" title="Next">⏭</button>
+      <button id="repeat-btn" class="icon-btn small" title="Repeat">🔁</button>
+    </div>
+
+    <div class="bottom-row">
+      <div class="volume-section">
+        <span id="volume-icon">🔊</span>
+        <input type="range" id="volume-bar" min="0" max="1" step="0.01" value="0.7">
+      </div>
+      <label class="autoplay-toggle">
+        <input type="checkbox" id="autoplay-check" checked>
+        <span>Autoplay</span>
+      </label>
+    </div>
+
+    <audio id="audio"></audio>
+  </div>
+
+  <!-- ===== PLAYLIST ===== -->
+  <div class="playlist-panel">
+    <div class="playlist-header">
+      <h3 id="playlist-title">Bollywood Playlist</h3>
+      <span id="song-count">10 songs</span>
+    </div>
+    <ul id="playlist" class="playlist"></ul>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
